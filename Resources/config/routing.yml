@@ -1,0 +1,5 @@
+photo_upload_dropzone:
+    path:     /photo/upload-dropzone
+    defaults: { _controller: PhotoBundle:Photo:uploadDropzone }
+    options:
+        expose: true

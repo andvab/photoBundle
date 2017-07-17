@@ -1,0 +1,22 @@
+.upload-photo-items:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.upload-photo-item{
+    position: relative;
+    float: left;
+    margin: 0 10px 10px 0;
+}
+.upload-photo-item .upload-photo-del:after{
+    content: '\f00d';
+    font-family: FontAwesome;
+    color: #fff;
+    font-style: normal;
+    font-weight: normal;
+    position: absolute;
+    top: -1px;
+    right: 3px;
+    opacity: 0.8;
+    cursor: pointer;
+}

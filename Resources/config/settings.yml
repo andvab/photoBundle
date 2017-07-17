@@ -1,0 +1,24 @@
+parameters:
+    photo.article.cover.orientation: landscape
+    photo.article.cover.min-width: 600
+    photo.article.cover.min-height: 400
+
+    photo.gallery.cover.orientation: landscape
+    photo.gallery.cover.min-width: 600
+    photo.gallery.cover.min-height: 400
+
+    photo.org_category.cover.orientation: landscape
+    photo.org_category.cover.min-width: 1000
+    photo.org_category.cover.min-height: 750
+
+    photo.organization.cover.orientation: landscape
+    photo.organization.cover.min-width: 1000
+    photo.organization.cover.min-height: 750
+
+    photo.organization.account.orientation : landscape
+    photo.organization.account.min-width: 1000
+    photo.organization.account.min-height: 750
+
+    photo.slide.cover.orientation: landscape
+    photo.slide.cover.min-width: 1200
+    photo.slide.cover.min-height: 350

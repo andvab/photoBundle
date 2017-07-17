@@ -1,0 +1,20 @@
+Photo: Добавить изображение
+user:
+    hotels:
+        cover:
+            add_photo: Choose image
+            placeholder: 'You need to upload up to 1 cover photo the hotel. It will be displayed on the hotel search page. Photo should be landscape, at least of 1600x500 pixels and not greater than 2 MB.'
+        photos:
+            add_photo: Choose image
+            placeholder: 'You need upload exactly to 5 photos of the hotel: outside of the hotel, lobby, restaurant, fitness, entrance. Photo should be landscape, at least of 1600x1000 pixels and not greater than 4 MB.'
+errors:
+    orientation: Orientation must be %orientation%.
+    min_width: The minimal width must be greater than %width%px.
+    min_height: The minimal height must be greater than %height%px.
+
+article:
+    cover:
+        placeholder: 'Изображение должно иметь ландшафтную ориентацию, быть шириной более 600px и высотой более 400px'
+
+
+

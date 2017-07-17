@@ -1,0 +1,49 @@
+{% block photo_widget %}
+    {% spaceless %}
+        <div class="upload-photo">
+            <div class="dropzone_upload" id="{{ form.vars.id }}_dropzone"
+                 data-max-files="{{ attr.max_file }}"
+                 data-file-size="{{ attr.max_size }}"
+                 data-type="{{ attr.type }}"
+                 data-subtype="{{ attr.subtype }}"
+                 data-prototype="<div class='upload-photo-item'><i class='upload-photo-del'></i><img src='__upload_src__' /><input type='hidden' id='{{ form.vars.id }}' name='{{ form.vars.full_name }}' /></div>"></div>
+            <div class="upload-photo-items">
+                {% if value %}
+                    <div class="upload-photo-item">
+                        <i class="upload-photo-del"></i>
+                        <img src="{{ value|pathPhoto|imagine_filter(attr.type ~ '_' ~ attr.subtype ~ '_preview') }}" />
+                        <input type='hidden' id='{{ form.vars.id }}' name='{{ form.vars.full_name }}' value="{{ value }}" />
+                    </div>
+                {% endif %}
+                {% if form.parent.vars.value|length %}
+                    {% for key, item in form.parent.vars.value %}
+                        <div class="upload-photo-item">
+                            <i class="upload-photo-del"></i>
+                            <img src="{{ item.path|imagine_filter(attr.type ~ '_' ~ attr.subtype ~ '_preview') }}" />
+                            <input type='hidden' id='{{ form.vars.id|replace({'__name__': key}) }}' name='{{ form.vars.full_name|replace({'__name__': key}) }}' value="{{ item.id }}" />
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="upload-photo-errors">
+                {% if form.parent.vars.prototype is defined %}
+                    {% for error in form.parent.parent.vars.errors %}
+                        {% if form.parent.vars.name == error.origin.config.name  %}
+                            <p>{{ error.message }}</p>
+                        {% endif %}
+                    {% endfor%}
+                {% else %}
+                    {% for error in form.parent.vars.errors %}
+                        {% if name == error.origin.config.name  %}
+                            <p>{{ error.message }}</p>
+                        {% endif %}
+                    {% endfor%}
+                {% endif %}
+            </div>
+            <a class="upload-photo-btn button-blue" id="{{ form.vars.id }}_dropzone_button">{{ form.vars.label|trans([], 'photo') }}</a>
+            <img id="{{ attr.type ~ '_' ~ attr.subtype ~ '_preloader' }}" class="login-preloader hidden" src="{{ asset('images/preloader.gif') }}">
+            <p>{{ attr.placeholder|trans([], 'photo') }}</p>
+        </div>
+    {% endspaceless %}
+    {% do form.parent.setRendered %}
+{% endblock %}

@@ -1,0 +1,21 @@
+services:
+    photo.manager.photo_manager:
+        class: PhotoBundle\Manager\PhotoManager
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    photo.service.upload_service:
+        class: PhotoBundle\Service\UploadService
+        arguments: ["@service_container"]
+
+    photo.twig.photo_extension:
+        class: PhotoBundle\Twig\PhotoExtension
+        public: false
+        arguments: ["@service_container"]
+        tags:
+            - { name: twig.extension }
+
+    photo.form.type.photo:
+        class: PhotoBundle\Form\Type\PhotoType
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: form.type }
